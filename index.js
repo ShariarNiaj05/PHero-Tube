@@ -57,7 +57,7 @@ const loadCategoryPost = async (categoryId) => {
                 <div class="card text-center md:text-left">
                     <div class="relative">
                     <figure><img class="h-[250px] " src="${post?.thumbnail}" alt="image" /></figure>
-                    <p class="text-white bg-black  absolute top-48 md:top-48 right-32 md:right-10">${post?.others?.posted_date ? time : ''}</p>
+                    <p class="text-white bg-black  absolute top-48 md:top-48 right-14 md:right-10">${post?.others?.posted_date ? time : ''}</p>
                     </div>
                     
                 <div class="card-body">
