@@ -19,9 +19,8 @@ const loadCategoryPost = async (categoryId) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`)
     const data = await response.json();
     const allPost = data.data;
-
-    console.log(allPost);
     const postContainer = document.getElementById('post-container')
+
     postContainer.textContent = ''
     
     if (allPost.length === 0) {
@@ -29,7 +28,7 @@ const loadCategoryPost = async (categoryId) => {
             div.innerHTML = `
             <div class="card text-center md:text-center">
                 <div class="container mx-auto">
-                    <img class="text-center" src="./images/Icon.png" alt="Shoes" />
+                    <img class="flex justify-center items-center " src="./images/Icon.png" alt="image" />
                     <p class="font-bold text-center text-2xl">No data to show in this category</p>
                 </div>    
             </div>
@@ -39,6 +38,9 @@ const loadCategoryPost = async (categoryId) => {
     }
     else {
         allPost?.forEach((post) => {
+            const viewsString = post?.others?.views.split("K");
+            const viewsNumber = parseFloat(viewsString[0]);
+            console.log(viewsNumber);      
 
             /*  let timeInSeconds = post?.others?.posted_date;
              let timeInMinutes = Math.floor(timeInSeconds / 60)
@@ -48,15 +50,13 @@ const loadCategoryPost = async (categoryId) => {
             let minutes = Math.floor((post?.others?.posted_date - (hours * 3600)) / 60);
             let time = hours + 'hrs ' + minutes + 'min ago';
     
-            const viewsString = post?.others?.views;
-            const viewsSplit = viewsString.split("k")
-            // console.log(viewsSplit);
+            
 
             const div = document.createElement('div')
             div.innerHTML = `
                 <div class="card text-center md:text-left">
                     <div class="relative">
-                    <figure><img class="h-[250px] " src="${post?.thumbnail}" alt="Shoes" /></figure>
+                    <figure><img class="h-[250px] " src="${post?.thumbnail}" alt="image" /></figure>
                     <p class="text-white bg-black  absolute top-48 md:top-48 right-32 md:right-10">${post?.others?.posted_date ? time : ''}</p>
                     </div>
                     
@@ -70,10 +70,21 @@ const loadCategoryPost = async (categoryId) => {
                 </div>
               </div>
                 `
-            postContainer.appendChild(div)
+            postContainer.appendChild(div);
+
+          
+            
         })
+        
     }
 }
+
+
+
+const views = () => {
+
+}
+
 
 
 
@@ -84,5 +95,4 @@ const blog = () => {
 
 
 loadCategory()
-
-loadCategoryPost('1000')
+loadCategoryPost('1005')

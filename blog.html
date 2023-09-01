@@ -16,7 +16,10 @@
             Discuss the scope of var, let, and const
         </div>
         <div class="collapse-content"> 
-          <p>hello</p>
+          <p>Var is globally scoped. That means I can access the var from any location of the .js file. Let’s take a complicated situation. Suppose i declare a variable with var in a function. I can acces the var outside the function as well. It’s call hoisting behaviour. This only happens to var variable.</p>
+
+        <p>On the other hand let and const cant be hoisting. That means, if i declare the let and const in a function scope it’s only be accessible within the function. The main difference between let and const are let can be re-declare where as const can’t.
+            </p>
         </div>
       </div>
       <div class="collapse collapse-plus bg-base-200">
@@ -25,7 +28,8 @@
             Tell us the use cases of null and undefined
         </div>
         <div class="collapse-content"> 
-          <p>hello</p>
+          <p>Undefined: In many cases i can get i defined. Such as: if i declare a variable but not assign a value then i’ll get undefined. On the other case, if i want to access an object property or array index that doesn’t exist i wll get undefined.</p>
+          <p>Null: I can intentionally set a variable value as null and then i’ll get null for the variable.</p>
         </div>
       </div>
       <div class="collapse collapse-plus bg-base-200">
@@ -34,7 +38,14 @@
             What do you mean by REST API?
         </div>
         <div class="collapse-content"> 
-          <p>hello</p>
+          <p>REST API mostly used for CRUD (create, read, update, delete) operation. This operation can be done by using the following methods.</p>
+          <ol>
+            <li>POST: create operation</li>
+            <li>GET: read operation</li>
+            <li>PUT: update operation for existing value. If not available PUT method will create a new one.</li>
+            <li>PATCH: update operation for existing value. Doesn’t create new one like PUT.</li>
+            <li>DELETE: delete operation.</li>
+          </ol>
         </div>
       </div>
 
