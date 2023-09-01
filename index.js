@@ -57,7 +57,7 @@ const loadCategoryPost = async (categoryId) => {
                 <div class="card text-center md:text-left">
                     <div class="relative">
                     <figure><img class="h-[250px] " src="${post?.thumbnail}" alt="Shoes" /></figure>
-                    <p class="text-white bg-black  absolute top-48 right-10">${post?.others?.posted_date ? time : ''}</p>
+                    <p class="text-white bg-black  absolute top-48 md:top-48 right-32 md:right-10">${post?.others?.posted_date ? time : ''}</p>
                     </div>
                     
                 <div class="card-body">
@@ -76,6 +76,13 @@ const loadCategoryPost = async (categoryId) => {
 }
 
 
+
+const blog = () => {
+    window.location.href = 'blog.html';
+    console.log('got the blog');
+}
+
+
 loadCategory()
 
-loadCategoryPost('1005')
+loadCategoryPost('1000')
