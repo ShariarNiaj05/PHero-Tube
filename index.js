@@ -95,4 +95,4 @@ const blog = () => {
 
 
 loadCategory()
-loadCategoryPost('1005')
+loadCategoryPost('1000')
