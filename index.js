@@ -11,6 +11,7 @@ const loadCategory = async () => {
         `
         tabContainer.appendChild(div)
     });
+   
 }
 
 
@@ -22,25 +23,37 @@ const loadCategoryPost = async (categoryId) => {
     const postContainer = document.getElementById('post-container')
 
     postContainer.textContent = ''
+
+    let sortedArray = [];  // my output: [100, 543, 1.1, 5.4, 3.6, 113, 1.1, 233, 4.5, 241, 2.6, 7.6]
+    
+   /*  allPost.sort((a, b) => {
+        const viewsA = parseFloat(a.others.views.split("K")[0]);
+        const viewsB = parseFloat(b.others.views.split("K")[0]);
+        return viewsB - viewsA;
+    }); */
+
     
     if (allPost.length === 0) {
             const div = document.createElement('div')
-            div.innerHTML = `
+        div.innerHTML = `
             <div class="card text-center md:text-center">
                 <div class="container mx-auto">
                     <img class="flex justify-center items-center " src="./images/Icon.png" alt="image" />
                     <p class="font-bold text-center text-2xl">No data to show in this category</p>
                 </div>    
             </div>
-                `
+        `;
         postContainer.appendChild(div)
         console.log('no data');
     }
     else {
         allPost?.forEach((post) => {
+
+            // sort by view 
             const viewsString = post?.others?.views.split("K");
             const viewsNumber = parseFloat(viewsString[0]);
-            console.log(viewsNumber);      
+            sortedArray.push(viewsNumber)
+                
 
             /*  let timeInSeconds = post?.others?.posted_date;
              let timeInMinutes = Math.floor(timeInSeconds / 60)
@@ -77,11 +90,14 @@ const loadCategoryPost = async (categoryId) => {
         })
         
     }
+    const descendingSort = sortedArray.sort((a,b) => b-a) //my Output: [543, 241, 233, 113, 100, 7.6, 5.4, 4.5, 3.6, 2.6, 1.1, 1.1]
+    console.log(descendingSort);
 }
 
 
 
-const views = () => {
+const sortByViews = (id) => {
+    loadCategoryPost(id);
 
 }
 
