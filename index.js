@@ -97,7 +97,7 @@ const loadCategoryPost = async (categoryId) => {
 
 
 const sortByViews = (id) => {
-    loadCategoryPost(id);
+    // loadCategoryPost(id);
 
 }
 
